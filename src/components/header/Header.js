@@ -1,8 +1,15 @@
 import React from 'react';
+import {
+  Navbar,
+  Button,
+} from 'react-bootstrap';
 
 const Header = () => (
   <>
-    <h1>Header</h1>
+    <Navbar bg="dark" variant="dark">
+      <Navbar.Brand href="#home">Chat</Navbar.Brand>
+      <Button variant="outline-secondary">LogIn</Button>
+    </Navbar>
   </>
 );
 
