@@ -1,16 +1,16 @@
 const connectWebSocket = () => {
   const ws = new WebSocket('ws://st-chat.shas.tel');
 
-  ws.onopen = (e) => {
-    console.log('online', e);
+  ws.onopen = () => {
+    console.log('online');
   };
 
-  ws.onclose = (e) => {
-    console.log('disconnect', e);
+  ws.onclose = () => {
+    console.log('disconnect');
   };
 
-  ws.onmessage = (e) => {
-    console.log('message', e);
+  ws.onmessage = () => {
+    console.log('message');
   };
 };
 
