@@ -5,51 +5,47 @@ import {
   Form,
 } from 'react-bootstrap';
 
-import store from '../../../store/state';
+// import store from '../../../store/state';
 
-store.subscribe(() => {
-  console.log('New state', store.getState());
-});
+// store.dispatch({
+//   type: 'LOG_IN_USER',
+// });
 
-store.dispatch({
-  type: 'LOG_IN_USER',
-});
+// store.dispatch({
+//   type: 'REGISTRATION_USER',
+//   payload: {
+//     nickName: 'newUser',
+//     password: '',
+//     avatar: '',
+//   },
+// });
 
-store.dispatch({
-  type: 'REGISTRATION_USER',
-  i: {
-    nickName: 'newUser',
-    password: '',
-    avatar: '',
-  },
-});
+// store.dispatch({
+//   type: 'REGISTRATION_USER',
+//   payload: {
+//     nickName: 'newUser',
+//     password: '',
+//     avatar: '',
+//   },
+// });
 
-store.dispatch({
-  type: 'REGISTRATION_USER',
-  i: {
-    nickName: 'newUser',
-    password: '',
-    avatar: '',
-  },
-});
+// store.dispatch({
+//   type: 'REGISTRATION_USER',
+//   payload: {
+//     nickName: 'newUser222',
+//     password: '',
+//     avatar: '',
+//   },
+// });
 
-store.dispatch({
-  type: 'REGISTRATION_USER',
-  i: {
-    nickName: 'newUser222',
-    password: '',
-    avatar: '',
-  },
-});
-
-store.dispatch({
-  type: 'REGISTRATION_USER',
-  i: {
-    nickName: 'newUser',
-    password: '',
-    avatar: '',
-  },
-});
+// store.dispatch({
+//   type: 'REGISTRATION_USER',
+//   payload: {
+//     nickName: 'newUser',
+//     password: '',
+//     avatar: '',
+//   },
+// });
 
 const LogInModal = props => (
   <Modal

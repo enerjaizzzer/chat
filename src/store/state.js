@@ -1,40 +1,22 @@
 import { createStore } from 'redux';
 
-const rootReducer = (state, action) => {
-  switch (action.type) {
-    case 'REGISTRATION_USER':
-      console.log('state', state)
-      for (let i = 0; i < state.users.length; i += 1) {
-        if (state.users[i].nickName === action.i.nickName) {
-          console.log('error');
-          return state;
-        }
-      }
-      return Object.assign({}, state, {
-        users: [
-          ...state.users,
-          {
-            nickName: action.i.nickName,
-            password: '',
-            avatar: 'https://hostenko.com/wpcafe/wp-content/uploads/wpavatar.png',
-          },
-        ],
-      });
-    case 'ololo':
-      return state;
-    default:
-      return state;
-  }
-}
+import usersReducer from './reducers/users';
+import messagesReducer from './reducers/messages';
+
+const rootReducer = (state, action) => ({
+  users: usersReducer(state.users, action),
+  messages: messagesReducer(state.messages, action),
+});
 
 const store = createStore(rootReducer, {
   users: [
     {
-      nickName: '',
-      password: '',
+      nickName: 'admin',
+      password: '123qwe',
       avatar: 'https://hostenko.com/wpcafe/wp-content/uploads/wpavatar.png',
     },
   ],
+  messages: [],
 });
 
 export default store;
