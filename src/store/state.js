@@ -1,37 +1,24 @@
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
+import * as reducers from './reducers';
 
-import usersReducer from './actions/users';
-import messagesReducer from './actions/messages';
-
-const initialState = {
-  users: [
-    { activeUser: 0 },
-    {
-      nickName: '1',
-      password: '1',
-      avatar: 'https://hostenko.com/wpcafe/wp-content/uploads/wpavatar.png',
-    },
-    {
-      nickName: '2',
-      password: '2',
-      avatar: 'https://hostenko.com/wpcafe/wp-content/uploads/wpavatar.png',
-    },
-    {
-      nickName: 'q',
-      password: 'q',
-      avatar: 'https://hostenko.com/wpcafe/wp-content/uploads/wpavatar.png',
-    },
-  ],
-  messages: {},
+const initState = {
+  settingUser: {
+    loginUser: 0,
+    users: [
+      {
+        nickName: 'olga',
+        password: 1,
+      },
+      {
+        nickName: 'Nastia',
+        password: 'q',
+      },
+    ],
+  },
 };
 
-const rootReducer = (state = initialState, action) => ({
-  users: usersReducer(state.users, action),
-  messages: messagesReducer(state.messages, action),
-});
+const reducer = combineReducers(reducers);
 
-const store = createStore(rootReducer);
-
-console.log(store.getState())
+const store = createStore(reducer, initState);
 
 export default store;
