@@ -5,6 +5,8 @@ import {
   Form,
 } from 'react-bootstrap';
 
+import comparison from './LogIn/comparison';
+
 // import store from '../../../store/state';
 
 // store.dispatch({
@@ -47,27 +49,61 @@ import {
 //   },
 // });
 
-const LogInModal = props => (
-  <Modal
-    {...props}
-    size="xs"
-    aria-labelledby="contained-modal-title-vcenter"
-    centered
-  >
-    <Form className="text-center">
-      <Form.Group controlId="formBasicEmail">
-        <Form.Label>Send your Nickname</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="NickName"
-        />
-      </Form.Group>
-      <Button variant="primary" type="submit">
-        LogIn
-      </Button>
-    </Form>
-  </Modal>
-);
+const LogInModal = (props) => {
+  const { identification } = props;
+  console.log(identification)
+  let valueNickName = '';
+  let valuePassword = '';
+
+  const submitValue = (e) => {
+    e.preventDefault();
+    comparison(valueNickName, valuePassword);
+  };
+
+  const onChangeNickName = (e) => {
+    valueNickName = e.target.value;
+  };
+
+  const onChangePassword = (e) => {
+    valuePassword = e.target.value;
+  };
+
+  return (
+    <Modal
+      {...props}
+      size="xs"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Form
+        className="text-center"
+        onSubmit={submitValue}
+      >
+        <Form.Group controlId="formBasicEmail">
+          <Form.Label>Send your Nickname</Form.Label>
+          <Form.Control
+            type="text"
+            onChange={onChangeNickName}
+            placeholder="NickName"
+          />
+          <Form.Label>Send Password</Form.Label>
+          <Form.Control
+            type="password"
+            onChange={onChangePassword}
+            placeholder="Password"
+          />
+        </Form.Group>
+        <Button
+          variant="primary"
+          onClick={() => identification(valueNickName, valuePassword)}
+          type="submit"
+        >
+          LogIn
+        </Button>
+      </Form>
+    </Modal>
+  );
+};
 
 // const mapStateToProps = (state) => {
 //   console.log(state);

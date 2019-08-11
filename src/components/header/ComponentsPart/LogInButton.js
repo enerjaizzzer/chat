@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 
 import LogInModal from './LogInModal';
 
-const LogInButton = () => {
+const LogInButton = ({ identification }) => {
   const [modalShow, setModalShow] = React.useState(false);
 
   return (
@@ -14,6 +14,7 @@ const LogInButton = () => {
       <LogInModal
         show={modalShow}
         onHide={() => setModalShow(false)}
+        identification={identification}
       />
     </>
   );

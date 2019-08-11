@@ -1,8 +1,3 @@
-import { createStore } from 'redux';
-
-import usersReducer from './actions/users';
-import messagesReducer from './actions/messages';
-
 const initialState = {
   users: [
     { activeUser: 0 },
@@ -25,13 +20,20 @@ const initialState = {
   messages: {},
 };
 
-const rootReducer = (state = initialState, action) => ({
-  users: usersReducer(state.users, action),
-  messages: messagesReducer(state.messages, action),
-});
+const rootReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case 'LOG_IN_USER':
+      console.log('state', state)
+      // state.forEach((item, i) => {
+      //   if (item.nickName === action.payload.nickName
+      //     && item.password === action.payload.password) {
+      //     return Object.assign(state, state[0].activeUser = i);
+      //   }
+      // });
+      return state;
+    default:
+      return state;
+  }
+};
 
-const store = createStore(rootReducer);
-
-console.log(store.getState())
-
-export default store;
+export default rootReducer;
