@@ -6,7 +6,7 @@ import {
 } from 'react-bootstrap';
 
 import store from '../../../../store/state';
-import actionUser from '../../../../store/actions/actionUser';
+import actionUserLogIn from '../../../../store/actions/actionUserLogIn';
 
 
 class LogInModal extends Component {
@@ -19,7 +19,7 @@ class LogInModal extends Component {
 
   submitValue = (e) => {
     e.preventDefault();
-    store.dispatch(actionUser(this.valueNickName, this.valuePassword));
+    store.dispatch(actionUserLogIn(this.valueNickName, this.valuePassword));
   };
 
   onChangeNickName = (e) => {

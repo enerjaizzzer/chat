@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import LogInButton from './ComponentsPart/LogIn/LogInButton';
 import RegistrationButton from './ComponentsPart/Registration/RegistrationButton';
-import UserInformation from './ComponentsPart/UserInformation'
+import UserInformation from './ComponentsPart/UserInformation/UserInformation';
 
 class Header extends Component {
   render() {
