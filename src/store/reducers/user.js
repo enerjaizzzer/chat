@@ -1,23 +1,22 @@
-const initStateUser = {
+const stateUser = {
   settingUser: {
     loginUser: 0,
-    users: [
-      {
-        nickName: 1,
-        password: 1,
-      },
-      {
-        nickName: 'q',
-        password: 'q',
-      },
-    ],
+    users: [],
   },
 };
 
-const reducerUser = (state = initStateUser, action) => {
+const reducerUser = (state = stateUser, action) => {
   switch (action.type) {
     case 'USER_LOG_IN':
-      return { ...state, ...{ loginUser: (action.payload) } };
+      let newUserState = 0;
+      state.users.forEach((element, i) => {
+        if (element.nickName === action.payload.nickName
+          && element.password === action.payload.password) {
+          newUserState = i;
+        }
+        return 'error';
+      });
+      return { ...state, loginUser: newUserState };
     default:
       return state;
   }

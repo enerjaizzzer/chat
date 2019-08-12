@@ -4,8 +4,9 @@ import {
   Modal,
   Form,
 } from 'react-bootstrap';
-import { connect } from 'react-redux';
-import store from '../../../store/state';
+
+import store from '../../../../store/state';
+import actionUser from '../../../../store/actions/actionUser';
 
 
 class LogInModal extends Component {
@@ -18,10 +19,7 @@ class LogInModal extends Component {
 
   submitValue = (e) => {
     e.preventDefault();
-    store.dispatch({
-      type: 'USER_LOG_IN',
-      payload: this.valueNickName,
-    });
+    store.dispatch(actionUser(this.valueNickName, this.valuePassword));
   };
 
   onChangeNickName = (e) => {
@@ -33,7 +31,6 @@ class LogInModal extends Component {
   };
 
   render() {
-    const { loginUser } = this.props;
     return (
       <Modal
         {...this.props}
@@ -59,7 +56,6 @@ class LogInModal extends Component {
               placeholder="Password"
             />
           </Form.Group>
-          <h1>{loginUser}</h1>
           <Button
             variant="primary"
             type="submit"
@@ -72,4 +68,4 @@ class LogInModal extends Component {
   }
 }
 
-export default connect(state => ({ loginUser: state.settingUser.loginUser }))(LogInModal);
+export default LogInModal;

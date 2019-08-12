@@ -3,15 +3,19 @@ import * as reducers from './reducers';
 
 const initState = {
   settingUser: {
-    loginUser: 0,
+    loginUser: -1,
     users: [
       {
         nickName: 'olga',
-        password: 1,
+        password: '1',
       },
       {
         nickName: 'Nastia',
         password: 'q',
+      },
+      {
+        nickName: 'w',
+        password: 'w',
       },
     ],
   },
