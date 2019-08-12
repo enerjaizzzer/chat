@@ -41,6 +41,8 @@ const reducerUser = (state = stateUser, action) => {
       newState.users.push(newUserInformation)
       console.log(newState)
       return newState;
+    case 'USER_LOG_OUT':
+      return { ...state, loginUser: action.payload };
     default:
       return state;
   }
