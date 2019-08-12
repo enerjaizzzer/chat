@@ -22,7 +22,7 @@ const reducerUser = (state = stateUser, action) => {
       return { ...state, loginUser: newUserLogInState };
     case 'USER_REGISTRATION':
       let newUserRegistrationState = -1;
-      let newUserInformation = {}
+      let newUserInformation = {};
       state.users.forEach((element) => {
         if (element.nickName === action.payload.nickName) {
           alert('Nickname is busy')
@@ -34,12 +34,9 @@ const reducerUser = (state = stateUser, action) => {
           };
         }
       });
-      const newState = {
-        ...state
-      };
+      const newState = { ...state };
       newState.loginUser = newUserRegistrationState;
-      newState.users.push(newUserInformation)
-      console.log(newState)
+      newState.users.push(newUserInformation);
       return newState;
     case 'USER_LOG_OUT':
       return { ...state, loginUser: action.payload };
