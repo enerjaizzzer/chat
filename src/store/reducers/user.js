@@ -34,7 +34,13 @@ const reducerUser = (state = stateUser, action) => {
           };
         }
       });
-      return { ...state, loginUser: newUserRegistrationState };
+      const newState = {
+        ...state
+      };
+      newState.loginUser = newUserRegistrationState;
+      newState.users.push(newUserInformation)
+      console.log(newState)
+      return newState;
     default:
       return state;
   }
