@@ -6,18 +6,14 @@ const initState = {
     loginUser: -1,
     users: [
       {
-        nickName: 'olga',
-        password: '1',
-      },
-      {
-        nickName: 'Nastia',
-        password: 'q',
-      },
-      {
-        nickName: 'w',
-        password: 'w',
+        nickName: 'admin',
+        password: 'admin',
       },
     ],
+  },
+  messages: {
+    someoneMessages: [],
+    yourMessages: [],
   },
 };
 

@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 
-import connectWebSockets from './utils/connectWebSocket';
+import connectWebSocket from './utils/connectWebSocket';
 import Header from './components/header/Header';
 import Main from './components/main/Main';
 import Footer from './components/footer/Footer';
 
 class App extends Component {
   render() {
-    connectWebSockets();
+    const ws = new WebSocket('ws://st-chat.shas.tel');
+    connectWebSocket(ws);
 
     return (
       <>
         <Header />
         <Main />
-        <Footer />
+        <Footer ws={ws} />
       </>
     );
   }

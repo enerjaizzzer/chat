@@ -1,16 +1,21 @@
-const connectWebSocket = () => {
-  const ws = new WebSocket('ws://st-chat.shas.tel');
+import store from '../store/state';
+import actionSomeoneMessage from '../store/actions/actionSomeoneMessage';
 
-  ws.onopen = () => {
-    console.log('online');
+const connectWebSocket = (ws) => {
+  ws.onopen = (e) => {
+
   };
 
-  ws.onclose = () => {
-    console.log('disconnect');
+  ws.onclose = (e) => {
+
   };
 
-  ws.onmessage = () => {
-    console.log('message');
+  ws.onmessage = (e) => {
+    const someoneMessage = JSON.parse(e.data);
+    someoneMessage.forEach((item) => {
+      store.dispatch(actionSomeoneMessage(item.from, item.message, item.time));
+    })
+    console.log(e.data)
   };
 };
 

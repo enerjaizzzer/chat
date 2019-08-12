@@ -1,42 +1,63 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
-  Navbar,
   Button,
   Form,
   Col,
+  Row,
+  Container,
 } from 'react-bootstrap';
 
+import store from '../../store/state';
+import actionYourMessage from '../../store/actions/actionYourMessage';
+import connectWebSocket from '../../utils/connectWebSocket';
+
+
 class Footer extends Component {
+  submitValue = (e) => {
+    e.preventDefault();
+    if (this.props.userInformation) {
+      this.nickName = this.props.userInformation.nickName;
+    } else { this.nickName = 'Guest' }
+    store.dispatch(actionYourMessage(this.nickName, this.message));
+    this.props.ws.send(JSON.stringify({
+      from: this.nickName,
+      message: this.message,
+    }))
+  }
+
+  onChangeMessage = (e) => {
+    this.message = e.target.value;
+  }
+
   render() {
+    console.log(this.props, '1231231231231231231')
     return (
-      <Navbar bg="dark" variant="dark" className="fixed-bottom">
+      <Container className="fixed-bottom bg-dark" fluid>
+        <Form
+          className="text-center"
+          onSubmit={this.submitValue}
+        >
+          <Row>
+            <Col xs={11}>
+              <Form.Control
+                type="text"
+                onChange={this.onChangeMessage}
+                placeholder="Text message"
+              />
+            </Col>
+            <Col xs={1}>
+              <Button
+                variant="primary"
+                type="submit"
+              >
+                Submit
+              </Button>
+            </Col>
+          </Row>
+        </Form>
+      </Container>
 
-        <Col xs={11}>
-          <Form
-            className="text-center"
-            onSubmit={this.submitValue}
-            md={10}
-          >
-            <Form.Control
-              type="text"
-              onChange={this.onChangePassword}
-              placeholder="Text message"
-            />
-          </Form>
-        </Col>
-        <Col xs={1}>
-          <Button
-            variant="primary"
-            type="submit"
-          >
-            Submit
-          </Button>
-        </Col>
-
-
-
-      </Navbar>
     );
   }
 }
