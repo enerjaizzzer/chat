@@ -6,16 +6,15 @@ import Messages from './ComponentsPart/Messages';
 class Main extends Component {
   render() {
     return (
-      <Container className="bg-secondary main" fluid>
+      <Container className="main" fluid>
         <Row>
           <Col>
             <Messages />
           </Col>
         </Row>
       </Container>
-    )
+    );
   }
 }
-
 
 export default Main;

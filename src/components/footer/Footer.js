@@ -14,15 +14,19 @@ import actionYourMessage from '../../store/actions/actionYourMessage';
 class Footer extends Component {
   submitValue = (e) => {
     e.preventDefault();
-    if (this.props.userInformation) {
-      this.nickName = this.props.userInformation.nickName;
-    } else { this.nickName = 'Guest' }
+
+    if (this.userInformation) {
+      this.nickName = this.userInformation.nickName;
+    } else {
+      this.nickName = 'Guest';
+    }
+
     store.dispatch(actionYourMessage(this.nickName, this.message));
-    this.props.ws.send(JSON.stringify({
+
+    this.ws.send(JSON.stringify({
       from: this.nickName,
       message: this.message,
-    }))
-    // this.onChangeMessage()
+    }));
   }
 
   onChangeMessage = (e) => {
@@ -30,8 +34,13 @@ class Footer extends Component {
   }
 
   render() {
+    const { userInformation, ws } = this.props;
+
+    this.userInformation = userInformation;
+    this.ws = ws;
+
     return (
-      <Container className="fixed-bottom bg-dark" fluid>
+      <Container className="fixed-bottom bg-dark footer" fluid>
         <Form
           className="text-center"
           onSubmit={this.submitValue}
@@ -42,12 +51,14 @@ class Footer extends Component {
                 type="text"
                 onChange={this.onChangeMessage}
                 placeholder="Text message"
+                className="send-form"
               />
             </Col>
             <Col xs={1}>
               <Button
-                variant="primary"
+                variant="outline-light"
                 type="submit"
+                className="button"
               >
                 Submit
               </Button>
@@ -55,7 +66,6 @@ class Footer extends Component {
           </Row>
         </Form>
       </Container>
-
     );
   }
 }

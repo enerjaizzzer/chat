@@ -8,7 +8,7 @@ const LogInButton = () => {
 
   return (
     <>
-      <Button variant="primary" onClick={() => setModalShow(true)}>
+      <Button className="button" variant="outline-light" onClick={() => setModalShow(true)}>
         LogIn
       </Button>
       <LogInModal

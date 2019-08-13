@@ -1,6 +1,6 @@
 const actionUser = () => ({
   type: 'USER_LOG_OUT',
-  payload: -1,
+  payload: false,
 });
 
 export default actionUser;

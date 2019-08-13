@@ -7,8 +7,8 @@ const stateUser = {
 
 const reducerMessages = (state = stateUser, action) => {
   switch (action.type) {
-    case 'SOMEONE_MESSAGE':
-      let newSomeoneState = state;
+    case 'SOMEONE_MESSAGE': {
+      const newSomeoneState = state;
       if (state.someoneMessages.length >= 100) {
         newSomeoneState.someoneMessages.shift();
       }
@@ -18,14 +18,16 @@ const reducerMessages = (state = stateUser, action) => {
         (a.time - b.time)
       ));
       return { ...newSomeoneState };
-    case 'YOUR_MESSAGE':
-      let newYourState = state;
-      if (state.yourMessages.length > 99) {
+    }
+    case 'YOUR_MESSAGE': {
+      const newYourState = state;
+      if (state.yourMessages.length >= 100) {
         newYourState.yourMessages.shift();
       }
-      const newStateYourMessage = { ...newYourState };
-      newStateYourMessage.yourMessages.unshift(action.payload);
-      return newStateYourMessage;
+
+      newYourState.yourMessages.unshift(action.payload);
+      return { ...newYourState };
+    }
     default:
       return state;
   }

@@ -3,7 +3,8 @@ import * as reducers from './reducers';
 
 const initState = {
   settingUser: {
-    loginUser: -1,
+    loginUser: false,
+    numberUser: 0,
     users: [
       {
         nickName: 'admin',

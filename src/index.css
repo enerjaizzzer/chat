@@ -13,6 +13,43 @@ code {
     monospace;
 }
 
+.header {
+  height: 50px;
+}
+
+.logo, .button, .send-form {
+  margin: 5px;
+}
+
+.modal-form {
+  padding: 20px;
+}
+
+.title-form {
+  margin-top: 20px;
+}
+
 .main {
-  
+  padding: 60px 0;
+}
+
+.message-block {
+  color: #343a40;
+}
+
+.message-nickName {
+  padding: 0 60px;
+  background-color: #f8f9fa;
+}
+
+.message-text {
+  padding: 0 40px;
+}
+
+.message-date {
+  padding: 0 100px;
+}
+
+.footer {
+  height: 50px;
 }

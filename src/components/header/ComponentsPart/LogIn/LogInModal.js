@@ -8,7 +8,6 @@ import {
 import store from '../../../../store/state';
 import actionUserLogIn from '../../../../store/actions/actionUserLogIn';
 
-
 class LogInModal extends Component {
   constructor(props) {
     super(props);
@@ -39,17 +38,17 @@ class LogInModal extends Component {
         centered
       >
         <Form
-          className="text-center"
+          className="text-center modal-form bg-dark text-light"
           onSubmit={this.submitValue}
         >
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Send your Nickname</Form.Label>
+            <Form.Label className="title-form">Send your Nickname</Form.Label>
             <Form.Control
               type="text"
               onChange={this.onChangeNickName}
               placeholder="NickName"
             />
-            <Form.Label>Send Password</Form.Label>
+            <Form.Label className="title-form">Send Password</Form.Label>
             <Form.Control
               type="password"
               onChange={this.onChangePassword}
@@ -57,8 +56,9 @@ class LogInModal extends Component {
             />
           </Form.Group>
           <Button
-            variant="primary"
+            variant="outline-light"
             type="submit"
+            className="button"
           >
             LogIn
           </Button>
