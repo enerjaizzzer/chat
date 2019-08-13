@@ -6,16 +6,11 @@ const connectWebSocket = (ws) => {
 
   };
 
-  ws.onclose = (e) => {
-
-  };
-
   ws.onmessage = (e) => {
     const someoneMessage = JSON.parse(e.data);
     someoneMessage.forEach((item) => {
       store.dispatch(actionSomeoneMessage(item.from, item.message, item.time));
     })
-    console.log(e.data)
   };
 };
 

@@ -10,7 +10,7 @@ class Header extends Component {
   render() {
     const { loginUser } = this.props;
     return (
-      <Navbar bg="dark" variant="dark">
+      <Navbar bg="dark" variant="dark" className="fixed-top">
         <Navbar.Brand href="#home">Chat</Navbar.Brand>
         {(loginUser < 0) && <LogInButton />}
         {(loginUser < 0) && <RegistrationButton />}

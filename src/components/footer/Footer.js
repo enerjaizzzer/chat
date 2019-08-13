@@ -10,8 +10,6 @@ import {
 
 import store from '../../store/state';
 import actionYourMessage from '../../store/actions/actionYourMessage';
-import connectWebSocket from '../../utils/connectWebSocket';
-
 
 class Footer extends Component {
   submitValue = (e) => {
@@ -24,6 +22,7 @@ class Footer extends Component {
       from: this.nickName,
       message: this.message,
     }))
+    // this.onChangeMessage()
   }
 
   onChangeMessage = (e) => {
@@ -31,7 +30,6 @@ class Footer extends Component {
   }
 
   render() {
-    console.log(this.props, '1231231231231231231')
     return (
       <Container className="fixed-bottom bg-dark" fluid>
         <Form
