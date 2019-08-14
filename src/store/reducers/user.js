@@ -2,6 +2,7 @@ const stateUser = {
   settingUser: {
     loginUser: false,
     numberUser: 0,
+    defaultAvatar: 'https://windows10free.ru/uploads/posts/2017-04/1493287748_1487679899_icon-user-640x640.png',
     users: [],
   },
 };
@@ -37,6 +38,7 @@ const reducerUser = (state = stateUser, action) => {
           newUserInformation = {
             nickName: action.payload.nickName,
             password: action.payload.password,
+            avatar: action.payload.avatar,
           };
         }
       });

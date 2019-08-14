@@ -12,14 +12,13 @@ import store from '../../store/state';
 import actionYourMessage from '../../store/actions/actionYourMessage';
 
 class Footer extends Component {
+  onChangeMessage = (e) => {
+    this.message = e.target.value;
+  }
+
   submitValue = (e) => {
     e.preventDefault();
-
-    if (this.userInformation) {
-      this.nickName = this.userInformation.nickName;
-    } else {
-      this.nickName = 'Guest';
-    }
+    this.nickName = this.userInformation.nickName;
 
     store.dispatch(actionYourMessage(this.nickName, this.message));
 
@@ -27,10 +26,7 @@ class Footer extends Component {
       from: this.nickName,
       message: this.message,
     }));
-  }
-
-  onChangeMessage = (e) => {
-    this.message = e.target.value;
+    e.target.form.value = '';
   }
 
   render() {
@@ -48,6 +44,7 @@ class Footer extends Component {
           <Row>
             <Col xs={11}>
               <Form.Control
+                id="form"
                 type="text"
                 onChange={this.onChangeMessage}
                 placeholder="Text message"
@@ -71,5 +68,5 @@ class Footer extends Component {
 }
 
 export default connect(state => ({
-  userInformation: state.settingUser.users[state.settingUser.loginUser],
+  userInformation: state.settingUser.users[state.settingUser.numberUser],
 }))(Footer);

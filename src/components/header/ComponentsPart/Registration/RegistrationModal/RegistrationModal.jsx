@@ -5,8 +5,8 @@ import {
   Form,
 } from 'react-bootstrap';
 
-import store from '../../../../store/state';
-import actionUserRegistration from '../../../../store/actions/actionUserRegistration';
+import store from '../../../../../store/state';
+import actionUserRegistration from '../../../../../store/actions/actionUserRegistration';
 
 class RegistrationModal extends Component {
   constructor(props) {

@@ -1,17 +1,17 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 
-import LogInModal from './LogInModal';
+import RegistrationModal from '../RegistrationModal';
 
-const LogInButton = () => {
+const RegistrationButton = () => {
   const [modalShow, setModalShow] = React.useState(false);
 
   return (
     <>
       <Button className="button" variant="outline-light" onClick={() => setModalShow(true)}>
-        LogIn
+        Registration
       </Button>
-      <LogInModal
+      <RegistrationModal
         show={modalShow}
         onHide={() => setModalShow(false)}
       />
@@ -19,4 +19,4 @@ const LogInButton = () => {
   );
 };
 
-export default LogInButton;
+export default RegistrationButton;

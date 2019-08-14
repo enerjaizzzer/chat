@@ -5,31 +5,26 @@ import {
   Form,
 } from 'react-bootstrap';
 
-import store from '../../../../store/state';
-import actionUserLogIn from '../../../../store/actions/actionUserLogIn';
+import store from '../../../../../store/state';
+import actionUserLogIn from '../../../../../store/actions/actionUserLogIn';
 
 class LogInModal extends Component {
-  constructor(props) {
-    super(props);
+  onChangeNickName = (e) => {
+    this.valueNickName = e.target.value;
+  }
 
-    this.valueNickName = '';
-    this.valuePassword = '';
+  onChangePassword = (e) => {
+    this.valuePassword = e.target.value;
   }
 
   submitValue = (e) => {
     e.preventDefault();
     store.dispatch(actionUserLogIn(this.valueNickName, this.valuePassword));
-  };
-
-  onChangeNickName = (e) => {
-    this.valueNickName = e.target.value;
-  };
-
-  onChangePassword = (e) => {
-    this.valuePassword = e.target.value;
-  };
+  }
 
   render() {
+    this.valueNickName = ' ';
+    this.valuePassword = ' ';
     return (
       <Modal
         {...this.props}

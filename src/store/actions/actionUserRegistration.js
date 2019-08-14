@@ -3,6 +3,7 @@ const actionUser = (nickName, password) => ({
   payload: {
     nickName,
     password,
+    avatar: 'https://hostenko.com/wpcafe/wp-content/uploads/wpavatar.png',
   },
 });
 

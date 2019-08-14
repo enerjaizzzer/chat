@@ -17,7 +17,9 @@ code {
   height: 50px;
 }
 
-.logo, .button, .send-form {
+
+
+.button, .send-form {
   margin: 5px;
 }
 
@@ -29,25 +31,45 @@ code {
   margin-top: 20px;
 }
 
+.avatar {
+  height: 50px;
+  width: 50px;
+  transition: 0.1s;
+}
+
+.avatar:hover {
+  transform: rotate(10deg);
+}
+
 .main {
   padding: 60px 0;
 }
 
 .message-block {
   color: #343a40;
+  position: relative;
+}
+
+.message-avatar {
+  width: 100px;
+  height: 100px;
 }
 
 .message-nickName {
-  padding: 0 60px;
   background-color: #f8f9fa;
+  word-wrap: break-word;
+  font-size: 24px;
 }
 
 .message-text {
-  padding: 0 40px;
+  word-wrap: break-word;
+  font-size: 20px;
+  padding-bottom: 10px;
 }
 
 .message-date {
-  padding: 0 100px;
+  font-size: 12px;
+  padding-bottom: 10px;
 }
 
 .footer {

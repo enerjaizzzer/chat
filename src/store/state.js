@@ -1,18 +1,25 @@
 import { createStore, combineReducers } from 'redux';
+import uniqid from 'uniqid';
+
 import * as reducers from './reducers';
 
 const initState = {
   settingUser: {
     loginUser: false,
     numberUser: 0,
+    defaultAvatar: 'https://windows10free.ru/uploads/posts/2017-04/1493287748_1487679899_icon-user-640x640.png',
     users: [
       {
-        nickName: 'admin',
+        nickName: `Guest(id=${uniqid()})`,
         password: 'admin',
+        avatar: 'https://hostenko.com/wpcafe/wp-content/uploads/wpavatar.png',
       },
     ],
   },
   messages: {
+    userIsHere: true,
+    countMessages: 0,
+    formValue: '',
     someoneMessages: [],
     yourMessages: [],
   },

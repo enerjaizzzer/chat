@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
 import Messages from './ComponentsPart/Messages';
+import ConnectUser from './ComponentsPart/ConnectUser';
 
 class Main extends Component {
   render() {
@@ -10,6 +11,7 @@ class Main extends Component {
         <Row>
           <Col>
             <Messages />
+            <ConnectUser />
           </Col>
         </Row>
       </Container>
