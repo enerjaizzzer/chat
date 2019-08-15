@@ -1,5 +1,4 @@
 import { createStore, combineReducers } from 'redux';
-import uniqid from 'uniqid';
 
 import * as reducers from './reducers';
 
@@ -10,7 +9,8 @@ const initState = {
     defaultAvatar: 'https://windows10free.ru/uploads/posts/2017-04/1493287748_1487679899_icon-user-640x640.png',
     users: [
       {
-        nickName: `Guest(id=${uniqid()})`,
+        id: '',
+        nickName: 'Guest',
         password: 'admin',
         avatar: 'https://hostenko.com/wpcafe/wp-content/uploads/wpavatar.png',
       },

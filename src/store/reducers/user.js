@@ -1,3 +1,5 @@
+import uniqid from 'uniqid';
+
 const stateUser = {
   settingUser: {
     loginUser: false,
@@ -43,6 +45,7 @@ const reducerUser = (state = stateUser, action) => {
         }
       });
       const newState = { ...state };
+      newState.id = `${uniqid()}`;
       newState.loginUser = newUserRegistrationState;
       newState.numberUser = newNumberUser;
       newState.users.push(newUserInformation);

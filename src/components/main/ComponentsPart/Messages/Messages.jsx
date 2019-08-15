@@ -8,6 +8,7 @@ const Messages = ({
   avatar,
   nickName,
   defaultAvatar,
+  id,
 }) => {
   const scrollingElement = (document.scrollingElement || document.body);
   scrollingElement.scrollTop = scrollingElement.scrollHeight + 50;
@@ -27,8 +28,15 @@ const Messages = ({
     return defaultAvatar;
   };
 
+  const identificationAuthor = (messageNickName, userNickName) => {
+    if (messageNickName === userNickName) {
+      return 'message-block my';
+    }
+    return 'message-block';
+  };
+
   const RenderMessages = messages.someoneMessages.map(item => (
-    <Row key={uniqid()} className="message-block">
+    <Row key={uniqid()} className={identificationAuthor(item.nickName, nickName)}>
       <Col xs={1}>
         <Image
           src={avatarIdentification(item.nickName, nickName)}
@@ -56,4 +64,5 @@ export default connect(state => ({
   avatar: state.settingUser.users[state.settingUser.numberUser].avatar,
   defaultAvatar: state.settingUser.defaultAvatar,
   nickName: state.settingUser.users[state.settingUser.numberUser].nickName,
+  id: state.settingUser.users[state.settingUser.numberUser].id,
 }))(Messages);
