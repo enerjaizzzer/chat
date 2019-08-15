@@ -51,7 +51,7 @@ code {
 }
 
 .my {
-  background-color: #f8f9faaf;
+  background-color: #f3f3f3;
 }
 
 .message-avatar {
@@ -60,7 +60,6 @@ code {
 }
 
 .message-nickName {
-  background-color: #f8f9fa;
   word-wrap: break-word;
   font-size: 24px;
 }

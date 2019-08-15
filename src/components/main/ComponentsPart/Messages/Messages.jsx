@@ -8,7 +8,6 @@ const Messages = ({
   avatar,
   nickName,
   defaultAvatar,
-  id,
 }) => {
   const scrollingElement = (document.scrollingElement || document.body);
   scrollingElement.scrollTop = scrollingElement.scrollHeight + 50;
@@ -64,5 +63,4 @@ export default connect(state => ({
   avatar: state.settingUser.users[state.settingUser.numberUser].avatar,
   defaultAvatar: state.settingUser.defaultAvatar,
   nickName: state.settingUser.users[state.settingUser.numberUser].nickName,
-  id: state.settingUser.users[state.settingUser.numberUser].id,
 }))(Messages);
