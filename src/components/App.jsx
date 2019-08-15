@@ -14,7 +14,7 @@ class App extends Component {
   constructor() {
     super();
 
-    this.ws = new WebSocket('ws://st-chat.shas.tel');
+    this.ws = new WebSocket('wss://wssproxy.herokuapp.com/');
   }
 
   render() {

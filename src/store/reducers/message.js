@@ -15,11 +15,9 @@ const reducerMessages = (state = stateUser, action) => {
       if (state.someoneMessages.length >= 10) {
         newSomeoneState.someoneMessages.shift();
       }
-      console.log(newSomeoneState.countMessages)
       if (!state.userIsHere) {
         newSomeoneState.countMessages += 1;
       }
-      console.log(newSomeoneState.countMessages)
       newSomeoneState.someoneMessages.push(action.payload);
 
       newSomeoneState.someoneMessages.sort((a, b) => (
@@ -29,6 +27,7 @@ const reducerMessages = (state = stateUser, action) => {
     }
     case 'YOUR_MESSAGE': {
       const newYourState = state;
+
       if (state.yourMessages.length >= 10) {
         newYourState.yourMessages.shift();
       }
